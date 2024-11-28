@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Owner;
 
@@ -12,6 +12,7 @@ class OwnersController extends Controller
 {
     public function index() {
         $owners = Owner::all(); 
+
         if (!$owners) {
             return response()->json([
                 'message' => 'Owners not found'
@@ -23,7 +24,6 @@ class OwnersController extends Controller
         ], 200); 
     }
 
-    // Show a single owner
     public function show($id) {
         $owner = Owner::find($id);
 

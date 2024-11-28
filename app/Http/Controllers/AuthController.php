@@ -38,7 +38,7 @@ class AuthController extends Controller {
             $user->save();
         }
 
-        $url = URL::temporarySignedRoute('activate', now()->addMinutes(5), ['user' => $user->id]);
+        $url = URL::temporarySignedRoute('activate', now()->addMinutes(1), ['user' => $user->id]);
 
         Mail::to($user->email)->send(new Activacion($user, $url));
 
@@ -141,7 +141,7 @@ class AuthController extends Controller {
             ], 404);
         }
 
-        $url = URL::temporarySignedRoute('activate', now()->addMinutes(5), ['user' => $user->id]);
+        $url = URL::temporarySignedRoute('activate', now()->addMinutes(1), ['user' => $user->id]);
 
         $activarCuenta = new Activacion($user, $url);
 

@@ -22,7 +22,7 @@ class Vehicle extends Model {
         'owner_id',
         'fuel_type_id',
         'brand',
-        'model',
+        'mod',
     ];
 
     protected $dates = ['deleted_at'];
@@ -33,21 +33,5 @@ class Vehicle extends Model {
 
     public function fuelType() {
         return $this->belongsTo(FuelType::class, 'fuel_type_id');
-    }
-
-    public function maintenanceRecords() {
-        return $this->hasMany(MaintenanceRecord::class);
-    }
-
-    public function insurancePolicies() {
-        return $this->hasMany(InsurancePolicy::class);
-    }
-
-    public function violations() {
-        return $this->hasMany(Violation::class);
-    }
-
-    public function vehicleParts() {
-        return $this->hasMany(VehiclePart::class);
     }
 }

@@ -13,6 +13,7 @@ class CheckRol {
         }
 
         $userRole = Auth::user()->rol;
+        
         $rolesArray = explode(',', $roles);
 
         if (!in_array($userRole, $rolesArray)) {

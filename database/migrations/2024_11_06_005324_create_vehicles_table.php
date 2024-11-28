@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->foreignId('owner_id')->constrained()->onDelete('cascade');
             $table->foreignId('fuel_type_id')->constrained('fuel_types')->onDelete('cascade');
             $table->string('brand');
-            $table->string('model');
+            $table->string('mod');
             $table->timestamps();
             $table->softDeletes();
         });
